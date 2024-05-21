@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tag_result.css') }}">
+</head>
+<body>
+<header>
+    <h1>Tag Information</h1>
+</header>
+<main>
+    <section class="tag-container">
+        <div class="tag-content">
+            <h2>Tag Information</h2>
+            {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            {% endwith %}
+            {% if data %}
+                <h3>Wiki Summary</h3>
+                <p>{{ data.wiki_summary }}</p>
+                <h3>Wiki Content</h3>
+                <p>{{ data.wiki_content }}</p>
+            {% else %}
+                <p>Les informations sur le tag ne sont pas disponibles.</p>
+            {% endif %}
+            <!-- Bouton de retour à la page d'accueil -->
+            <a href="{{ url_for('index') }}" class="btn">Retour à l'accueil</a>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Music Information. Tous droits réservés.</p>
+</footer>
+</body>
+</html>

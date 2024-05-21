@@ -1,0 +1,48 @@
+/* Réinitialisation des marges et des rembourrages */
+body, h1, h2, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Utilisation de variables pour les couleurs */
+:root {
+    --color-rose: #ff4081;
+    --color-rose-fonce: #ff005b;
+    --color-blanc: #fff;
+    --color-gris-fond: #f4f4f4;
+}
+
+/* Utilisation de la police de caractères Arial ou une police sans sérif en cas d'absence */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-gris-fond);
+}
+
+/* Style de l'en-tête */
+.header {
+    background-color: var(--color-rose);
+    color: var(--color-blanc);
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* Style du bouton "Faire une recherche" */
+.search-button {
+    background-color: var(--color-rose);
+    color: var(--color-blanc);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Ajoute un espace en haut du bouton */
+
+}
+
+.search-button:hover {
+    background-color: var(--color-rose-fonce);
+}
+
+
+

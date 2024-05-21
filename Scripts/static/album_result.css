@@ -1,0 +1,144 @@
+/* styles.css */
+
+/* Style général */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f1f2; /* Rose pâle */
+    color: #333; /* Noir */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Style de l'en-tête */
+header {
+    background-color: #ff66b3; /* Rose vif */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Style du contenu principal */
+main {
+    padding: 20px 0;
+}
+
+/* Style du pied de page */
+footer {
+    background-color: #ff66b3; /* Rose vif */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Style des sections */
+.section {
+    margin-bottom: 30px;
+}
+
+/* Style des titres */
+h1, h2, h3 {
+    margin-top: 0;
+    color: #ff66b3; /* Rose vif */
+}
+
+/* Style des listes */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style des éléments de liste */
+li {
+    margin-bottom: 10px;
+    color: #666; /* Gris foncé */
+}
+
+/* Style des liens */
+a {
+    color: #ff66b3; /* Rose vif */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style des boutons */
+.btn {
+    display: inline-block;
+    background-color: #ff66b3; /* Rose vif */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Transition fluide pour le survol */
+}
+
+.btn:hover {
+    background-color: #ff4d94; /* Rose foncé */
+}
+
+/* Style pour les contenus */
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Nouveau style pour le tableau */
+table {
+    max-width: 800px; /* Taille maximale du tableau */
+    margin: 0 auto; /* Centrer le tableau */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Style pour l'en-tête du tableau */
+thead th {
+    background-color: #ff66b3; /* Rose vif */
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style pour les lignes impaires du tableau */
+tbody tr:nth-child(odd) {
+    background-color: #f8f1f2; /* Rose pâle */
+}
+
+/* Style pour les lignes paires du tableau */
+tbody tr:nth-child(even) {
+    background-color: #fff; /* Blanc */
+}
+
+/* Style pour les cellules du tableau */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Bordure basse gris clair */
+}
+
+/* Style pour le survol des lignes du tableau */
+tbody tr:hover {
+    background-color: #ffebf0; /* Rose clair au survol */
+}
+
+/* Style pour la zone de texte */
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-top: 10px;
+}

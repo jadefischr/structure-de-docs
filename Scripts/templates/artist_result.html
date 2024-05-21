@@ -1,0 +1,113 @@
+<!-- artist_result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de l'Artiste</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='artist_result.css') }}">
+</head>
+<body>
+<header>
+    <h1>Informations de l'Artiste</h1>
+</header>
+<main>
+    <section class="artist-container">
+        <h1>{{ nomartiste }}</h1>
+        <div>
+            <div class="artist-content">
+                <div class="top-tracks">
+                    <h3>Top 20 Titres</h3>
+                    <ul>
+                        {% for track in dataTitre['toptracks']['track'][:20] %}
+                            <li>{{ track['name'] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="albums">
+                    <h3>Albums</h3>
+                    <ul>
+                        {% for album in dataAlbum['topalbums']['album'] %}
+                            <li class="album-artist">{{ album['name'] }}
+                                {% if album['image'] %}
+                                    {% set firstImage = album['image'][0]['#text'] %}
+                                    <img src="{{ firstImage }}" >
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="similar-artists">
+                    <h3>Artistes similaires</h3>
+                    <ul id="artist-list">
+                        {% for similar in dataSimilar['similarartists']['artist'] %}
+                            <li class="similar-artist">{{ similar['name'] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- Bouton de retour à la page d'accueil -->
+                <a href="{{ url_for('index') }}" class="btn">Retour à l'accueil</a>
+            </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Music Information. Tous droits réservés.</p>
+</footer>
+
+<script>
+    //Récupérer nom de l'artiste
+    var artistNom = "{{ nomartiste }}";
+    // Récupérer tous les éléments de la liste des artistes similaires
+    var artistList = document.querySelectorAll('.similar-artist');
+    // Récupérer tous les éléments de la liste des albums
+    var albumList = document.querySelectorAll('.album-artist');
+
+    // Ajouter un gestionnaire d'événement clic à chaque élément ARTISTES SIMILAIRES
+    artistList.forEach(function(artist) {
+        artist.addEventListener('click', function() {
+            var artistName = artist.textContent;
+            // Rediriger l'utilisateur vers la page artist_result avec le nom de l'artiste comme paramètre
+            window.location.href = "/artist_result/" + artistName;
+        });
+
+        // Ajouter des styles au survol de l'élément
+        artist.addEventListener('mouseenter', function() {
+            artist.style.backgroundColor = 'purple';
+            artist.style.color = 'white';
+            artist.style.cursor = 'pointer';
+        });
+
+        // Supprimer les styles lorsqu'on quitte l'élément
+        artist.addEventListener('mouseleave', function() {
+            artist.style.backgroundColor = '';
+            artist.style.color = '';
+            artist.style.cursor = '';
+        });
+    });
+
+    // Ajouter un gestionnaire d'événement clic à chaque élément ALBUMS
+    albumList.forEach(function(artist) {
+        artist.addEventListener('click', function() {
+            var albumName = artist.textContent;
+            // Rediriger l'utilisateur vers la page artist_result avec le nom de l'artiste et de l'album comme paramètre
+            window.location.href = "/album_result/" + artistNom + "/" + albumName;
+        });
+
+        // Ajouter des styles au survol de l'élément
+        artist.addEventListener('mouseenter', function() {
+            artist.style.backgroundColor = 'purple';
+            artist.style.color = 'white';
+            artist.style.cursor = 'pointer';
+        });
+
+        // Supprimer les styles lorsqu'on quitte l'élément
+        artist.addEventListener('mouseleave', function() {
+            artist.style.backgroundColor = '';
+            artist.style.color = '';
+            artist.style.cursor = '';
+        });
+    });
+</script>
+
+</body>
+</html>
